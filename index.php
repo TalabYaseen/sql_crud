@@ -15,7 +15,7 @@ require_once('config.php');
 </body>
 </html>
 <?php
-$html = "<table class='table table-dark' style='width:50%;margin:100px auto'>
+$html = "<table class='table table-dark' style='width:80%;margin:100px auto'>
 <thead>
   <tr>
     <th scope='col'>Id</th>
@@ -29,7 +29,12 @@ $html = "<table class='table table-dark' style='width:50%;margin:100px auto'>
 </thead>
 <tbody>";
 
-echo "<div><h1>Employees Details</h1> <button type='button'><a href='./add.php'>Add New Employee</a></button></div>";
+// echo "<div><h2>Employees Details</h2>
+//         <button type='button'>
+//           <a href='./add.php'>Add New Employee</a>
+//         </button>
+//       </div>";
+      
 $sql = "SELECT * FROM employees_data";
 $data= $conn->query($sql);
 foreach($data as $elemant) {
@@ -43,6 +48,11 @@ foreach($data as $elemant) {
   $html .= "<td><form method='POST'><button type='submit' name = '$elemant[id]'>delete</button><hr></form><form method='GET' action='./edite.php'><button type='submit' name = '$elemant[id]'>edite</button><hr></form></td></tr>";
 }
 $html .="</tbody></table>";
+echo "<div><h2>Employees Details</h2>
+        <button type='button'>
+          <a href='./add.php'>Add New Employee</a>
+        </button>
+      </div>";
 echo $html;
 if ($_SERVER["REQUEST_METHOD"] === "POST"){
 $del_num = (array_keys($_POST,NULL)[0]);
