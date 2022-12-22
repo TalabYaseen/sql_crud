@@ -7,7 +7,7 @@
     <title>add employee</title>
 </head>
 <body>
-    <form action="" method="POST">
+    <form  action="" method="POST">
         <label>Name</label>
         <input type="text" name="e_name">
         <label>Address</label>
